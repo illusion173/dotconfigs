@@ -1,0 +1,107 @@
+# ========================================
+# YABAI/SKHD MANAGEMENT
+# ========================================
+# stop/start/restart yabai
+ctrl + alt - q : yabai --stop-service
+ctrl + alt - s : yabai --start-service
+ctrl + alt - r : yabai --restart-service
+
+# stop/start/restart skhd
+ctrl + shift - q : skhd --stop-service
+ctrl + shift - s : skhd --start-service
+ctrl + shift - r : skhd --restart-service
+
+# Reload yabai config
+cmd + shift + alt - r : yabai --restart-service
+
+# Mod key: cmd (equivalent to Super/Win key in i3)
+
+# ========================================
+# WINDOW FOCUS (i3: $mod+hjkl or arrows)
+# ========================================
+cmd - h : yabai -m window --focus west
+cmd - j : yabai -m window --focus south
+cmd - k : yabai -m window --focus north
+cmd - l : yabai -m window --focus east
+
+# Arrow key alternatives
+cmd - left : yabai -m window --focus west
+cmd - down : yabai -m window --focus south
+cmd - up : yabai -m window --focus north
+cmd - right : yabai -m window --focus east
+
+# ========================================
+# WINDOW MOVEMENT (i3: $mod+shift+hjkl)
+# ========================================
+cmd + shift - h : yabai -m window --swap west
+cmd + shift - j : yabai -m window --swap south
+cmd + shift - k : yabai -m window --swap north
+cmd + shift - l : yabai -m window --swap east
+
+# Arrow key alternatives
+cmd + shift - left : yabai -m window --swap west
+cmd + shift - down : yabai -m window --swap south
+cmd + shift - up : yabai -m window --swap north
+cmd + shift - right : yabai -m window --swap east
+
+# ========================================
+# WINDOW RESIZING (i3: $mod+r then hjkl)
+# ========================================
+# Resize mode toggle (hold ctrl+alt then use hjkl)
+ctrl + alt - h : yabai -m window --resize left:-50:0 || yabai -m window --resize right:-50:0
+ctrl + alt - j : yabai -m window --resize bottom:0:50 || yabai -m window --resize top:0:50
+ctrl + alt - k : yabai -m window --resize top:0:-50 || yabai -m window --resize bottom:0:-50
+ctrl + alt - l : yabai -m window --resize right:50:0 || yabai -m window --resize left:50:0
+
+# ========================================
+# MULTI-DISPLAY SUPPORT
+# ========================================
+# Focus display (monitor)
+cmd - 1 : yabai -m display --focus 1
+cmd - 2 : yabai -m display --focus 2
+cmd - 3 : yabai -m display --focus 3
+
+# Move window to display
+cmd + shift + alt - 1 : yabai -m window --display 1
+cmd + shift + alt - 2 : yabai -m window --display 2
+cmd + shift + alt - 3 : yabai -m window --display 3
+
+# Move window to display and follow focus
+cmd + ctrl - 1 : yabai -m window --display 1; yabai -m display --focus 1
+cmd + ctrl - 2 : yabai -m window --display 2; yabai -m display --focus 2
+cmd + ctrl - 3 : yabai -m window --display 3; yabai -m display --focus 3
+
+# Cycle through displays
+cmd + alt - left : yabai -m display --focus prev
+cmd + alt - right : yabai -m display --focus next
+
+
+# ========================================
+# WINDOW CONTROLS (i3: $mod+shift+q, $mod+f)
+# ========================================
+# Close window (i3: $mod+shift+q)
+cmd + shift - q : yabai -m window --close
+
+# Toggle fullscreen (i3: $mod+f)
+cmd - f : yabai -m window --toggle zoom-fullscreen
+
+# Toggle native fullscreen
+cmd + shift - f : yabai -m window --toggle native-fullscreen
+
+# Toggle floating (i3: $mod+shift+space)
+cmd + shift - space : yabai -m window --toggle float
+
+# ========================================
+# LAYOUT MANAGEMENT (i3: $mod+e, $mod+s, $mod+w)
+# ========================================
+# Toggle layout modes
+cmd - e : yabai -m space --layout bsp        # i3: tiling mode
+cmd - s : yabai -m space --layout stack      # i3: stacking mode
+cmd - w : yabai -m space --layout float      # i3: floating mode
+
+
+# ========================================
+# APPLICATION LAUNCHING (i3: $mod+d, $mod+return)
+# ========================================
+# Terminal (i3: $mod+return)
+cmd - return : /Applications/Alacritty.app/Contents/MacOS/alacritty
